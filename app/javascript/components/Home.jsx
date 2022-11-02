@@ -82,13 +82,12 @@ export default function App(){
     <Layout>
       <Header style={{ backgroundColor:"lightskyblue", display:"flex" }}>
         <div className="logo" />
-        <Menu 
-        style={{ marginLeft:"auto", width: "250px", backgroundColor:"lightskyblue", alignItems:"left", justifyContent:"left", display:"flex"}} 
-        mode="horizontal"
-
-        defaultSelectedKeys={[window.location.pathname]}
-        items={items2} 
-      />
+        <Menu mode="horizontal" style={{ marginLeft:"auto", width: "200px", backgroundColor:"lightskyblue", alignItems:"left", justifyContent:"left", display:"flex"}}>
+        <Menu.Item 
+          key="3">
+          <LogIn />
+         </Menu.Item>
+        </Menu> 
       </Header>
      <Content
        style={{

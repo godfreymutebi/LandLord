@@ -13,24 +13,36 @@
  *= require_tree .
  *= require_self
  */
- 
-    .logo {
-      float: left;
-      width: 200px;
-      height: 31px;
-      margin: 16px 24px 16px 0;
-      background-image: url(https://www.honeybadger.io/images/navbar_logo.svg?1602785015);
-      background-repeat: no-repeat;
   
-    }
-    
-    .ant-row-rtl .logo {
-      float: right;
-      margin: 16px 0 16px 24px;
-    }
-    
-    .site-layout-background {
-      background: #fff;
-    } 
 
-  
+.logo {
+  float: left;
+  width: 200px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background-image: url(https://www.honeybadger.io/images/navbar_logo.svg?1602785015);
+  background-repeat: no-repeat;
+
+}
+
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+  background: #fff;
+} 
+
+ .login-form {
+  max-width: 300px;
+}
+ .login-form-forgot {
+  float: right;
+}
+ .ant-col-rtl .login-form-forgot {
+  float: left;
+}
+ .login-form-button {
+  width: 100%;
+}

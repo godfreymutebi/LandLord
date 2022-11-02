@@ -4,9 +4,22 @@ import React from 'react';
 import { useState, useRef } from 'react';
 
 export default function LogIn () {
-//formRef = React.createRef();
 const form = useRef();
 const [Visible, setVisible] = useState(false);
+
+//states for login/registration
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+
+ // Handling the email change
+ const handleEmail = (e) => {
+  setEmail(e.target.value);
+};
+
+  // Handling the password change
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
 
 const showModal = () => {
   setVisible(true);
@@ -38,7 +51,7 @@ const onFinish = (values) => {
 return(
    <>
     <Button type="primary" onClick={showModal}>
-      LogIn
+      LogIn/Register
     </Button>
     <Modal title="Please login to continue" visible={Visible} onCancel={handleCancel} footer={null}>
     <Form ref={form} layout="vertical" onFinish={onFinish}
@@ -62,7 +75,10 @@ return(
                 },
             ]}
             >
-            <Input />
+            <Input
+              onChange={handleEmail}
+              value={email}
+             />
             </Form.Item>
     
         <Form.Item
@@ -75,9 +91,10 @@ return(
             },
             ]}
         >
-            <Input
+            <Input onChange={handlePassword}
             prefix={<LockOutlined className="site-form-item-icon" />}
             type="password"
+            value={password}
             placeholder="Password"
             />
         </Form.Item>
