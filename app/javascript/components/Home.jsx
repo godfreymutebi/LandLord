@@ -1,37 +1,29 @@
 
-import {HomeOutlined,QuestionCircleOutlined, UploadOutlined, VideoCameraOutlined, UnorderedListOutlined, UserOutlined, LaptopOutlined, DashboardOutlined, NotificationOutlined, PoweroffOutlined} from '@ant-design/icons';
+import { HomeOutlined, QuestionCircleOutlined, UploadOutlined, VideoCameraOutlined, UnorderedListOutlined, UserOutlined, LaptopOutlined, DashboardOutlined, NotificationOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import React from 'react';
-import { useNavigate } from "react-router-dom";
-import LogIn from './Login';
+import { useNavigate, BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import LogOut from '../components/LogOut';
+import LogIn from '../components/LogIn';
+import Register from '../components/Register';
+import UserList from '../components/UserList';
+import Dashboard from '../components/Dashboard';
+import { useState } from 'react';
 const { Header, Content, Footer, Sider } = Layout;
 
-const items2 = [
-  {
-    key: '/Home',
-    icon: <QuestionCircleOutlined />,
-    label: 'Help',
-  },
-  {
-    key: '/login',
-    icon: <UserOutlined />,
-    label: 'LogIn/Register',
-  }
-]
-
-const items1 = [ 
+const items1 = [
   {
     key: '/',
     icon: <HomeOutlined />,
     label: 'Home',
   },
   {
-    key: '/Dasboard',
+    key: '../components/Dasboard',
     icon: <DashboardOutlined />,
     label: 'Dashboard',
   },
- {
-    key: '/UserList',
+  {
+    key: '../components/UserList',
     icon: <UnorderedListOutlined />,
     label: 'UserList',
   },
@@ -44,7 +36,7 @@ const items1 = [
     key: '5',
     icon: <VideoCameraOutlined />,
     label: 'nav 5',
-    children:[
+    children: [
       {
         key: '10',
         icon: <UploadOutlined />,
@@ -61,7 +53,7 @@ const items1 = [
     key: '6',
     icon: <UploadOutlined />,
     label: 'nav 6',
-    children:[
+    children: [
       {
         key: '20',
         icon: <UploadOutlined />,
@@ -76,77 +68,45 @@ const items1 = [
   },
 ]
 
-export default function App(){
+export default function Home() {
   const navigate = useNavigate();
-  return(
-    <Layout>
-      <Header style={{ backgroundColor:"lightskyblue", display:"flex" }}>
+  return (
+    <Layout style={{ minHeight: '100vh' }}>
+      <Header style={{ backgroundColor: "lightskyblue", display: "flex" }}>
         <div className="logo" />
-        <Menu mode="horizontal" style={{ marginLeft:"auto", width: "200px", backgroundColor:"lightskyblue", alignItems:"left", justifyContent:"left", display:"flex"}}>
-        <Menu.Item 
-          key="3">
-          <LogIn />
-         </Menu.Item>
-        </Menu> 
+        <Menu mode="horizontal" style={{ marginLeft: "auto", width: "200px", backgroundColor: "lightskyblue", alignItems: "left", justifyContent: "left", display: "flex" }}>
+          <Menu.Item
+            key="3">
+            <LogIn />
+          </Menu.Item>
+        </Menu>
       </Header>
-     <Content
-       style={{
-         padding: '0 50px',
-       }}
-     >
-       <Breadcrumb
-         style={{
-           margin: '16px 0',
-         }}
-       >
-         <Breadcrumb.Item>Home</Breadcrumb.Item>
-         <Breadcrumb.Item>List</Breadcrumb.Item>
-         <Breadcrumb.Item>App</Breadcrumb.Item>
-       </Breadcrumb>
-       <Layout
-         className="site-layout-background"
-         style={{
-           padding: '24px 0',
-         }}
-       >
-         <Sider className="site-layout-background" width={200}>
-           <Menu
-             mode="inline"
-             style={{
-               height: '100%',
-             }}
-             onClick={({key})=>{
-              if(key === "SignOut"){
-                //TODO, SIGNOUT
-              }else{
-                navigate(key);
-              }
-            }}
-            defaultselectedkeys={[window.location.pathname]}
-            items={items1}
-           />
-         </Sider>
-         <Content
-           style={{
-             padding: '0 24px',
-             minHeight: 280,
-           }}
-         >
-           Content
-         </Content>
-       </Layout>
-     </Content>
-     <Footer
-       style={{
-         textAlign: 'center',
-         backgroundColor: 'grey',
- 
-       }}
-     >
-       Ant Design ©2018 Created by Ant UED
-     </Footer>
-   </Layout>
+      <Content style={{ padding: '0 50px' }}>
+        <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
+          <Sider className="site-layout-background" width={200}>
+            <Menu mode="inline" style={{ height: '100%' }}
+              onClick={({ key }) => {
+                if (key === "SignOut") {
+                  //TODO, SIGNOUT
+                } else {
+                  navigate(key);
+                }
+              }}
+              defaultselectedkeys={[window.location.pathname]}
+              items={items1}
+            />
+          </Sider>
+          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 500 }}>
+            Content
+          </Content>
+        </Layout>
+      </Content>
+      <Footer style={{ textAlign: 'center', backgroundColor: 'grey' }}>
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
+    </Layout>
+
   )
 };
-  
- 
+
+
