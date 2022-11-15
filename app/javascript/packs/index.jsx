@@ -4,10 +4,18 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+//import Home from '../components/Home';
+import { BrowserRouter } from 'react-router-dom';
+import 'antd/dist/antd.css';
 import App from '../components/App';
-import { render } from "react-dom";
 
 document.addEventListener("DOMContentLoaded", () => {
   var element = document.getElementById("root-page");
-  ReactDOM.render(<App />, element);  
+  ReactDOM.render(
+    <React.StrictMode>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+      </React.StrictMode> , element);  
 });
+

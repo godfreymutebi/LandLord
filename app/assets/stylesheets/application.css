@@ -14,16 +14,8 @@
  *= require_self
  */
   
+/* 
 
-.logo {
-  float: left;
-  width: 200px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background-image: url(https://www.honeybadger.io/images/navbar_logo.svg?1602785015);
-  background-repeat: no-repeat;
-
-}
 
 .ant-row-rtl .logo {
   float: right;
@@ -45,4 +37,42 @@
 }
  .login-form-button {
   width: 100%;
+} */
+
+#components-layout-demo-fixed-sider .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.2);
+} */
+.site-layout .site-layout-background {
+  background: #fff;
+}
+  [data-theme="dark"] .site-layout .site-layout-background {
+    background: #141414;
+  }
+  .logo {
+    float: left;
+    width: 200px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background-image: url(https://www.honeybadger.io/images/navbar_logo.svg?1602785015);
+    background-repeat: no-repeat;
+  
+  }
+
+#components-dropdown-demo-arrow .ant-btn {
+  height: 31px;
+  margin: 16px 24px 16px 0;
+}
+.ant-row-rtl #components-dropdown-demo-arrow .ant-btn {
+  margin-right: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
 }
