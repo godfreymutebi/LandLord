@@ -14,8 +14,13 @@
  *= require_self
  */
   
-/* 
-
+ .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
 
 .ant-row-rtl .logo {
   float: right;
@@ -24,55 +29,16 @@
 
 .site-layout-background {
   background: #fff;
-} 
-
- .login-form {
-  max-width: 300px;
 }
- .login-form-forgot {
-  float: right;
-}
- .ant-col-rtl .login-form-forgot {
-  float: left;
-}
- .login-form-button {
-  width: 100%;
-} */
-
-#components-layout-demo-fixed-sider .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.2);
+.header {
+  background-color: aqua;
 }
 
-
-/* .logo {
-  height: 32px;
-  margin: 16px;
-  background: rgba(255, 255, 255, 0.2);
-} */
-.site-layout .site-layout-background {
-  background: #fff;
+.site-card-wrapper {
+  padding: 30px;
+  background: #ececec;
 }
-  [data-theme="dark"] .site-layout .site-layout-background {
-    background: #141414;
-  }
-  .logo {
-    float: left;
-    width: 200px;
-    height: 31px;
-    margin: 16px 24px 16px 0;
-    background-image: url(https://www.honeybadger.io/images/navbar_logo.svg?1602785015);
-    background-repeat: no-repeat;
-  
-  }
 
-#components-dropdown-demo-arrow .ant-btn {
-  height: 31px;
-  margin: 16px 24px 16px 0;
-}
-.ant-row-rtl #components-dropdown-demo-arrow .ant-btn {
-  margin-right: 0;
-  margin-bottom: 8px;
-  margin-left: 8px;
+[data-theme="dark"] .site-card-wrapper {
+  background: #303030;
 }

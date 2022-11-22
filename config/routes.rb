@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :houses
+
   namespace :api do
     namespace :v1 do
-      get 'home/index'
+      get 'homes/index'
+      post 'homes/create'
+      get '/show/:id', to: 'homes#show'
+      delete '/destroy/:id', to: 'homes#destroy'
     end
   end
   devise_for :tenants, path: '', path_names: {
@@ -14,8 +17,7 @@ Rails.application.routes.draw do
     sessions: 'tenants/sessions',
     registrations: 'tenants/registrations'
   }
-  root 'home#index' 
+  root 'homes#index' 
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
-
-

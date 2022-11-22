@@ -1,14 +1,13 @@
-import React, { Fragment } from 'react'
+import { Breadcrumb, Layout, Menu, Button, Dropdown, Space } from 'antd';
+const { Header, Content, Footer, Sider } = Layout;
+import React from 'react'
 import { HomeOutlined, UploadOutlined, VideoCameraOutlined, UnorderedListOutlined, UserOutlined, DashboardOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { useNavigate, Route, Routes } from "react-router-dom";
-import { Button, Dropdown, Layout, Menu, Space } from 'antd';
 import Dashboard from './Dashboard';
 import Apartments from '../pages/Apartments';
 import Rentals from '../pages/Rentals';
 import Home from '../pages/Home';
 import Booking from '../pages/Booking'
-import ButtonGroup from 'antd/lib/button/button-group';
-const { Header, Content, Footer, Sider } = Layout;
 
 //MenuItems for Top Nav Bar
 const menu = (
@@ -88,63 +87,77 @@ const items1 = [
 
 const App = () => {
   return (
-    <Layout style={{ display: "flex", flexDirection: "column", width: "100%", minHeight: "100vh" }}>
+    <Layout>
       <Header1 />
-      <Layout style={{ marginTop: 35 }}>
-        <SideMenu1 />
-        <Layout style={{ width: "auto", marginTop: 10 }}>
-          <Content1 />
-          <Footer1 />
+      <Content
+        style={{
+          padding: '0 50px',
+        }}
+      >
+        <Breadcrumb
+          style={{
+            margin: '16px 0',
+          }}
+        >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>Dasboard</Breadcrumb.Item>
+          <Breadcrumb.Item>Rentals</Breadcrumb.Item>
+        </Breadcrumb>
+        <Layout
+          className="site-layout-background"
+          style={{
+            padding: '24px 0',
+          }}
+        >
+          <SideMenu1 />
+          <Content className="site-layout-background"
+            style={{
+              padding: '0 24px',
+              minHeight: 280,
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<Home />}>Home</Route>
+              <Route path="/Dashboard" element={<Dashboard />}>Dasboard</Route>
+              <Route path="/pages/Booking" element={<Booking />}>Booking</Route>
+              <Route path="/pages/Apartments" element={<Apartments />}>Apartments</Route>
+              <Route path="/pages/Rentals" element={<Rentals />}>Rentals</Route>
+            </Routes>
+          </Content>
         </Layout>
-      </Layout>
+      </Content>
+      <Footer
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        Ant Design ©2018 Created by Ant UED
+      </Footer>
     </Layout>
-  )
-};
+  );
+
+}
 
 export default App;
+
 
 //Header
 const Header1 = () => {
   return (
-    <Header style={{ backgroundColor: "lightSkyBlue", zIndex: 1, display: "flex", flexDirection: "column", top: 0, left: 0, position: "fixed", width: "inherit" }}>
+    <Header className='header' theme="light" style={{ backgroundColor: "lightskyblue" }} >
       <div className="logo" />
-      <div style={{ backgroundColor: "lightSkyBlue", display: "flex", right: 20, padding: 10, position: "inherit", float: "right", width: 300 }}>
-        <Fragment>
-          <ButtonGroup>
-              <Button type='primary'>Help</Button>
-              <Button type='primary'>Contact Us</Button>
-              <Dropdown overlay={menu} placement="bottomRight">
-                <Button type='primary'>
-                  Account
-                </Button>
-              </Dropdown>
-          </ButtonGroup>
-        </Fragment>
+      <div style={{ float: "right", width: 300 }}>
+        <Space>
+          <Button >Help</Button>
+          <Button >Contact Us</Button>
+          <Dropdown overlay={menu} placement="bottomRight">
+            <Button>
+              Account
+            </Button>
+          </Dropdown>
+        </Space>
       </div>
     </Header>
-  )
-}
-
-//Content 
-const Content1 = () => {
-  return (
-    <Content style={{ minHeight: '100vh', margin: '24px 16px 0', overflow: 'initial', background: '#fff', display: "flex", flexDirection: "column", width: "inherit" }}>
-      <div
-        className="site-layout-background"
-        style={{
-          padding: 24,
-          textAlign: 'center',
-        }}
-      >
-        <Routes>
-          <Route path="/" element={<Home />}>Home</Route>
-          <Route path="/Dashboard" element={<Dashboard />}>Dasboard</Route>
-          <Route path="/pages/Booking" element={<Booking />}>Booking</Route>
-          <Route path="/pages/Apartments" element={<Apartments />}>Apartments</Route>
-          <Route path="/pages/Rentals" element={<Rentals />}>Rentals</Route>
-        </Routes>
-      </div>
-    </Content>
   )
 }
 
@@ -152,7 +165,7 @@ const Content1 = () => {
 const SideMenu1 = () => {
   const navigate = useNavigate();
   return (
-    <Sider style={{ overflow: 'auto', minHeight: '100vh', position: 'fixed', background: '#fff', left: 0 }}>
+    <Sider className="site-layout-background" width={200}>
       <Menu
         items={items1}
         onClick={({ key }) => {
@@ -165,14 +178,8 @@ const SideMenu1 = () => {
         defaultSelectedKeys={[window.location.pathname]}
         theme="light"
         mode="inline"
+        style={{ height: '100%' }}
       />
     </Sider>
   )
 }
-//Footer
-const Footer1 = () => {
-  return (
-    <Footer style={{ bottom: 0, textAlign: 'center', width: "inherit" }}> Ant Design ©2018 Created by Ant UED</Footer>
-  )
-}
-

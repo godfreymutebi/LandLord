@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_11_082125) do
+ActiveRecord::Schema.define(version: 2022_11_19_211650) do
 
-  create_table "houses", force: :cascade do |t|
+  create_table "homes", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "image_url"
     t.decimal "price", precision: 8, scale: 2
-    t.text "location", null: false
     t.string "availability", default: "Available", null: false
+    t.string "location", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

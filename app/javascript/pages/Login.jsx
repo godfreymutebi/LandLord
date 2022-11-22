@@ -1,4 +1,4 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined} from '@ant-design/icons';
 import { Button, Checkbox, Form, Input, Modal } from 'antd';
 import React from 'react';
 import { useState, useRef } from 'react';
