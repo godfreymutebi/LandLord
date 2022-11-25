@@ -43,7 +43,12 @@ class Home extends React.Component {
             actions={[
               <>
                 <Space>
-                  {item.price}
+                  {new Intl.NumberFormat("en-GB", {
+                    style: "currency",
+                    currency: "GBP",
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                  }).format(item.price)}
                   <Button shape="round" href="">Default Button</Button>
                 </Space>
               </>
