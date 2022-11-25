@@ -1,14 +1,15 @@
-import React from 'react';
-import {DollarCircleOutlined }from '@ant-design/icons';
-import { Card } from 'antd';
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-const { Meta } = Card;
-const Home = () => {
-  const navigate = useNavigate();
-  const [homes, setHomes] = useState([]);
-  //data fetching
-  useEffect(() => {
+import React from "react";
+import { Space, List, Button } from 'antd';
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      homes: []
+    };
+  }
+  //data fetching 
+  componentDidMount() {
     const url = "/api/v1/homes/index";
     fetch(url)
       .then(response => {
@@ -17,56 +18,52 @@ const Home = () => {
         }
         throw new Error("Network response was not ok.");
       })
-      .then(response => setHomes({ homes: response }))
-      .catch(() => navigate("/"));
-  }, [])
-  
-  return (
-    <div>
-      <ul>
-        {homes.map((home) => (
-          <li key={home.id}>
-            <h3>
-              {home.title} 
-            </h3>
-            <h3>
-              {home.image_url} 
-            </h3>
-            <p>{home.description}</p>
-            <h3>
-              {home.price} 
-            </h3>
-            <h3>
-              {home.location} 
-            </h3>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+      .then(response => this.setState({ homes: response }))
+      .catch(() => this.props.history.push("/"));
+  }
+
+  render() {
+    const { homes } = this.state;
+
+    return (
+      <List
+        bordered
+        itemLayout="vertical"
+        size="large"
+        pagination={{
+          onChange: (page) => {
+            console.log(page);
+          },
+          pageSize: 3,
+        }}
+        dataSource={homes}
+
+        renderItem={(item) => (
+          <List.Item key={item.id}
+            actions={[
+              <>
+                <Space>
+                  {item.price}
+                  <Button shape="round" href="">Default Button</Button>
+                </Space>
+              </>
+            ]}
+            extra={
+              <img
+                width={272}
+                alt="logo"
+                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+              />
+            }
+          >
+            <List.Item.Meta
+              title={item.title}
+              description={item.description}
+            />
+          </List.Item>
+        )}
+      />
+    );
+  }
+}
 export default Home;
-
-{/* <div className="site-card-wrapper" style={{ marginTop: 3 }}>
-      {homes.map((home) => (
-        <Card key={home.id}
-          style={{
-            marginTop: 5,
-          }}
-          actions={[
-            <DollarCircleOutlined label='Price' key="{home.price}" />,
-            <DollarCircleOutlined label='Buy' key="PAYEMENTS" />,
-
-          ]}
-        >
-          <Meta
-            avatar={<img alt="example" src="{home.image_url}" />}
-            title=" {home.title} "
-            description="{home.description}"
-          />
-           <p>{"home.location"}</p>
-        </Card>
-      ))}
-    </div> */}
-
-    
