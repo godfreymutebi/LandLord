@@ -56,7 +56,7 @@ Home.create!(title: 'Programming Crystal',
       and is a breeze to deploy.
       </p>},
       location: 'Makindye',
-  image_url: 'image1.jpeg',
+  image_url: 'bmw.jpeg',
   price: 40.00)
   # . . .
 
@@ -74,7 +74,7 @@ description:
     and is a breeze to deploy.
     </p>},
     location: 'Salaama',
-image_url: 'download2.jpeg',
+image_url: 'downloada.jpeg',
 price: 40.00)
 
 # . . .
@@ -97,3 +97,19 @@ Home.create!(title: 'Programming machine',
   price: 40.00)
 
 
+  Home.create!(title: 'Programming machine',
+  description:
+    %{<p>
+      <em>Create High-Performance, Safe, Concurrent Apps</em>
+      Crystal is for Ruby programmers who want more performance or for 
+      developers who enjoy working in a high-level scripting environment. Crystal 
+      combines native execution speed and concurrency with Ruby-like syntax, so 
+      you will feel right at home. This book, the first available on Crystal, 
+      shows you how to write applications that have the beauty and elegance of a 
+      modern language, combined with the power of types and modern concurrency 
+      tooling. Now you can write beautiful code that runs faster, scales better, 
+      and is a breeze to deploy.
+      </p>},
+      location:'Namugongo',
+  image_url: 'bmw.jpeg',
+  price: 40.00)

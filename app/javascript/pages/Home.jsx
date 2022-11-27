@@ -1,6 +1,6 @@
 import React from "react";
 import { Space, List, Button } from 'antd';
-
+// import image from '../components/images'
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ class Home extends React.Component {
               <img
                 width={272}
                 alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+                src={`./images/${item.image_url}`}
               />
             }
           >
