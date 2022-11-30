@@ -9,4 +9,5 @@ class Home < ApplicationRecord
         message: 'must be a URL for GIF, JPG, JPEG or PNG image.'
     }
     
+    # has_one :payment, through: :tenant
 end

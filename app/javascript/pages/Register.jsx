@@ -16,7 +16,7 @@ export default function Register() {
   };
 
   const onFinish = (values) => {
-    const url = "http://localhost:3000/signup";
+    const url = "/signup";
     fetch(url, {
       method: "post",
       headers: {

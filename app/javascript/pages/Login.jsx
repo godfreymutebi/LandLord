@@ -56,7 +56,7 @@ export default function LogIn() {
       .then(data => {
         localStorage.setItem('tenantId', data.id)
         setTenant(data.email)
-        navigate('/Home')
+        navigate('/')
       })
     setData({
       email: '',

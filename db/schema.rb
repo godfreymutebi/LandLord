@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_19_211650) do
+ActiveRecord::Schema.define(version: 2022_11_30_220712) do
 
   create_table "homes", force: :cascade do |t|
     t.string "title"
@@ -18,9 +18,24 @@ ActiveRecord::Schema.define(version: 2022_11_19_211650) do
     t.string "image_url"
     t.decimal "price", precision: 8, scale: 2
     t.string "availability", default: "Available", null: false
-    t.string "location", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.text "address"
+    t.decimal "money_paid"
+    t.string "nin_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "tenant_id" 
+    t.integer "home_id" 
+    t.date "date"
+    t.index ["home_id"], name: "index_payments_on_home_id"
+    t.index ["tenant_id"], name: "index_payments_on_tenant_id"
   end
 
   create_table "tenants", force: :cascade do |t|
@@ -35,4 +50,6 @@ ActiveRecord::Schema.define(version: 2022_11_19_211650) do
     t.index ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "payments", "homes"
+  add_foreign_key "payments", "tenants"
 end

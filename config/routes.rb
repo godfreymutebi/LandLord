@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
-
   namespace :api do
     namespace :v1 do
       get 'homes/index'
       post 'homes/create'
       get '/show/:id', to: 'homes#show'
       delete '/destroy/:id', to: 'homes#destroy'
+      # resources :payments
+
+      get '/payments/index'
+      post '/payments/create'
     end
+   
   end
+
   devise_for :tenants, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',

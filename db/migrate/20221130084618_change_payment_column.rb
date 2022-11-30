@@ -1,0 +1,5 @@
+class ChangePaymentColumn < ActiveRecord::Migration[6.1]
+  def change
+    change_column :payments, :tenant_id, :integer, null: true
+  end
+end

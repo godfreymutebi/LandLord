@@ -3,16 +3,17 @@ const { Header, Content, Footer, Sider } = Layout;
 import React from 'react'
 import { HomeOutlined, UploadOutlined, VideoCameraOutlined, UnorderedListOutlined, UserOutlined, DashboardOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { useNavigate, Route, Routes } from "react-router-dom";
-import Dashboard from './Dashboard';
+import Login from '../pages/Login';
 import Apartments from '../pages/Apartments';
 import Rentals from '../pages/Rentals';
 import Home from '../pages/Home';
 import Booking from '../pages/Booking'
+import Payment from '../pages/Payment';
 
 //MenuItems for Top Nav Bar
 const menu = (
   <Menu>
-    <Menu.Item>Login</Menu.Item>
+    <Menu.Item >Login</Menu.Item>
     <Menu.Item>LogOut</Menu.Item>
     <Menu.Item>Register</Menu.Item>
     <Menu.Item>FoggotPassword</Menu.Item>
@@ -27,9 +28,9 @@ const items1 = [
     label: 'Home',
   },
   {
-    key: '/Dashboard',
+    key: '/pages/Login',
     icon: <DashboardOutlined />,
-    label: 'Dashboard',
+    label: 'Login',
   },
 
   {
@@ -118,10 +119,11 @@ const App = () => {
           >
             <Routes>
               <Route path="/" element={<Home />}>Home</Route>
-              <Route path="/Dashboard" element={<Dashboard />}>Dasboard</Route>
+              <Route path="/pages/Login" element={<Login />}>Login</Route>
               <Route path="/pages/Booking" element={<Booking />}>Booking</Route>
               <Route path="/pages/Apartments" element={<Apartments />}>Apartments</Route>
               <Route path="/pages/Rentals" element={<Rentals />}>Rentals</Route>
+              <Route path="/pages/Payment" element={<Payment />}>Payment</Route>
             </Routes>
           </Content>
         </Layout>
