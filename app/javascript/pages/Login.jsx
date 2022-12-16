@@ -34,9 +34,9 @@ export default function LogIn() {
   };
   //submitting form
   const onFinish = (values) => {
-    const session = {"tenant": values}
+    const session = {"user": values}
     // return
-    const url = "/login";
+    const url = " /users/sign_in";
     fetch(url, {
       method: "post",
       headers: {
@@ -54,7 +54,7 @@ export default function LogIn() {
         throw new Error("Network error.");
       })
       .then(data => {
-        localStorage.setItem('tenantId', data.id)
+        localStorage.setItem('userId', data.id)
         setTenant(data.email)
         navigate('/')
       })
@@ -110,7 +110,7 @@ export default function LogIn() {
           </Form.Item>
 
           <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
+            <Form.Item name="remember_me" valuePropName="checked" noStyle>
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
             <a className="login-form-forgot" href="">

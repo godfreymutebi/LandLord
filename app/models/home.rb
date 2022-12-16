@@ -1,5 +1,5 @@
 class Home < ApplicationRecord
-    validates :title, :description, :image_url, :price, :location, :availability, presence: true
+    validates :title, :description, :image_url, :price,  :availability, presence: true
     validates :price, numericality: { greater_than_or_equal_to: 0.01 }
    
 
@@ -9,5 +9,5 @@ class Home < ApplicationRecord
         message: 'must be a URL for GIF, JPG, JPEG or PNG image.'
     }
     
-    # has_one :payment, through: :tenant
+    has_many :payments
 end

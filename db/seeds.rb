@@ -19,7 +19,6 @@ Home.create!(title: 'Docker for Rails Developers',
       as Docker transforms the massive leap of deploying your app in the cloud 
       into a baby step.
       </p>},
-      location:'Mukono',
   image_url: 'download.jpeg',
   price: 38.00)
 # . . .
@@ -37,7 +36,6 @@ Home.create!(title: 'Build Chatbot Interactions',
       can participate. Exercise your creativity by creating chatbot 
       skills for communicating, information, and fun.
       </p>},
-      location:'Entebbe',
   image_url: 'image.jpeg',
   price: 20.00)
 # . . .
@@ -55,7 +53,6 @@ Home.create!(title: 'Programming Crystal',
       tooling. Now you can write beautiful code that runs faster, scales better, 
       and is a breeze to deploy.
       </p>},
-      location: 'Makindye',
   image_url: 'bmw.jpeg',
   price: 40.00)
   # . . .
@@ -73,7 +70,6 @@ description:
     tooling. Now you can write beautiful code that runs faster, scales better, 
     and is a breeze to deploy.
     </p>},
-    location: 'Salaama',
 image_url: 'downloada.jpeg',
 price: 40.00)
 
@@ -92,7 +88,6 @@ Home.create!(title: 'Programming machine',
       tooling. Now you can write beautiful code that runs faster, scales better, 
       and is a breeze to deploy.
       </p>},
-      location:'Namugongo',
   image_url: 'download.jpeg',
   price: 40.00)
 
@@ -110,6 +105,5 @@ Home.create!(title: 'Programming machine',
       tooling. Now you can write beautiful code that runs faster, scales better, 
       and is a breeze to deploy.
       </p>},
-      location:'Namugongo',
   image_url: 'bmw.jpeg',
   price: 40.00)

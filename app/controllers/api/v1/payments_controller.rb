@@ -1,12 +1,16 @@
 class Api::V1::PaymentsController < ApplicationController
     before_action :set_payment, only: %i[ show edit update destroy ]
-
+    before_action :authenticate_user!
     # GET /payments or /payments.json
     def index
-      @payments = Payment.all.order(created_at: :desc)
-      render json: @payments
+     if user_signed_in?
+        @payments = current_user.payments.order(created_at: :desc)
+            render json: @payments
+         else
+            render json: {}, status: 401
+        end
     end
-  
+
     # GET /payments/1 or /payments/1.json
     def show
         if @payment
@@ -18,7 +22,7 @@ class Api::V1::PaymentsController < ApplicationController
    
     # GET /payments/new
     def new
-      @payment = Payment.new
+      @payment = current_user.payments.build
     end
   
     # GET /payments/1/edit
@@ -26,15 +30,18 @@ class Api::V1::PaymentsController < ApplicationController
     end
   
     # POST /payments or /payments.json
-    def create
-      @payment = Payment.new(payment_params)
-        if @payment.save
-         render json: @payment
-        else
-         render json: @payment.errors
+    def create 
+        home = Home.find(params[:home_id])
+        if user_signed_in? 
+            if payment = current_user.payments.create(payment_params, home)
+             render json: payment, status: :created 
+             else 
+                render json: payment.errors, status: 400
+            end
+        else 
+            render json: {}, status: 401
         end
     end
-    
     # PATCH/PUT /payments/1 or /payments/1.json
     def update
       if @payment.update(payment_params)
@@ -58,6 +65,6 @@ class Api::V1::PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:first_name, :last_name, :phone_number, :address, :money_paid, :date, :nin_number)
+      params.require(:payment).permit(:first_name, :last_name, :phone_number, :address, :money_paid, :date, :nin_number, :user_id, :home_id)
     end
 end

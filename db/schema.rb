@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_30_220712) do
+ActiveRecord::Schema.define(version: 2022_12_15_071948) do
 
   create_table "homes", force: :cascade do |t|
     t.string "title"
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 2022_11_30_220712) do
     t.string "nin_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "tenant_id" 
-    t.integer "home_id" 
+    t.integer "home_id"
     t.date "date"
+    t.integer "user_id"
     t.index ["home_id"], name: "index_payments_on_home_id"
-    t.index ["tenant_id"], name: "index_payments_on_tenant_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
-  create_table "tenants", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 2022_11_30_220712) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_tenants_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_tenants_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "payments", "homes"
-  add_foreign_key "payments", "tenants"
+  add_foreign_key "payments", "users"
 end

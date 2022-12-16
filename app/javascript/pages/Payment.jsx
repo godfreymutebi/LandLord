@@ -6,11 +6,15 @@ const Payment = () => {
     const navigate = useNavigate();
     const form = useRef();
     const onFinish = (values) => {
+        // values.preventDefault();
+        let token = document.querySelector('meta[name="csrf-token"]').content;
         const url = "/api/v1/payments/create";
         fetch(url, {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-Token': token
             },
             body: JSON.stringify(values),
         })
