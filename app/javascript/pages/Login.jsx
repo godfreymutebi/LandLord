@@ -42,6 +42,7 @@ export default function LogIn() {
         });
     };
     const onFinish = (values) => {
+        setLoading(true);
         const session = { "user": values }
         let path = " /users/sign_in";
         setAxiosHeaders();
@@ -54,10 +55,6 @@ export default function LogIn() {
                     navigate("/");
                     window.location.reload();
                 }, 2000);
-            })
-            .then((response) => {
-                console.log(response.data);
-                setUser(response.data)
             })
             .catch((error) => {
                 console.log(error);
@@ -116,7 +113,7 @@ export default function LogIn() {
                 </Form.Item>
                 <Form.Item shouldUpdate>
                     {() =>(
-                    <Button
+                    <Button 
                         loading={loading} 
                         type='primary'
                         htmlType='submit'

@@ -10,15 +10,6 @@ import Home from '../pages/Home';
 import Booking from '../pages/Booking'
 import Payment from '../pages/Payment';
 
-//MenuItems for Top Nav Bar
-const menu = (
-  <Menu>
-    <Menu.Item >Login</Menu.Item>
-    <Menu.Item>LogOut</Menu.Item>
-    <Menu.Item>Register</Menu.Item>
-    <Menu.Item>FoggotPassword</Menu.Item>
-  </Menu>
-);
 
 //SideNav
 const items1 = [
@@ -141,16 +132,8 @@ const Header1 = () => {
   return (
     <Header className='header' theme="light" style={{ backgroundColor: "lightskyblue" }} >
       <div className="logo" />
-      <div style={{ float: "right", width: 300 }}>
-        <Space>
-          <Button >Help</Button>
-          <Button >Contact Us</Button>
-          <Dropdown overlay={menu} placement="bottomRight">
-            <Button>
-              Account
-            </Button>
-          </Dropdown>
-        </Space>
+      <div style={{ float: "right"}}>
+          <Button >Log Out</Button>
       </div>
     </Header>
   )
