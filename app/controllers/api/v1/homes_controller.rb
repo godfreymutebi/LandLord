@@ -1,5 +1,5 @@
 class Api::V1::HomesController < ApplicationController
-    skip_before_action :verify_authenticity_token
+    before_action :authenticate_user!
     before_action :set_home, only: %i[ show edit update destroy ]
   # GET /homes or /homes.json
   def index

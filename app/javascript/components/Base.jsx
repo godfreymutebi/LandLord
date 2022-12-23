@@ -3,7 +3,7 @@ const { Header, Content, Footer, Sider } = Layout;
 import React from 'react'
 import { HomeOutlined, UploadOutlined, VideoCameraOutlined, UnorderedListOutlined, UserOutlined, DashboardOutlined, PoweroffOutlined } from '@ant-design/icons';
 import { useNavigate, Route, Routes } from "react-router-dom";
-import Login from '../pages/Login';
+// import Login from '../pages/Login';
 import Apartments from '../pages/Apartments';
 import Rentals from '../pages/Rentals';
 import Home from '../pages/Home';
@@ -27,12 +27,6 @@ const items1 = [
     icon: <HomeOutlined />,
     label: 'Home',
   },
-  {
-    key: '/pages/Login',
-    icon: <DashboardOutlined />,
-    label: 'Login',
-  },
-
   {
     key: '/pages/Rentals',
     icon: <UnorderedListOutlined />,
@@ -86,7 +80,7 @@ const items1 = [
 ]
 
 
-const App = () => {
+const Base = () => {
   return (
     <Layout>
       <Header1 />
@@ -119,7 +113,6 @@ const App = () => {
           >
             <Routes>
               <Route path="/" element={<Home />}>Home</Route>
-              <Route path="/pages/Login" element={<Login />}>Login</Route>
               <Route path="/pages/Booking" element={<Booking />}>Booking</Route>
               <Route path="/pages/Apartments" element={<Apartments />}>Apartments</Route>
               <Route path="/pages/Rentals" element={<Rentals />}>Rentals</Route>
@@ -140,7 +133,7 @@ const App = () => {
 
 }
 
-export default App;
+export default Base;
 
 
 //Header

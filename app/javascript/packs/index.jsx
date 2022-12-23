@@ -7,15 +7,20 @@ import ReactDOM from 'react-dom';
 //import Home from '../components/Home';
 import { BrowserRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
-import App from '../components/App';
+import Routes from '../routes/index';
+// import App from '../components/App';
+// import LogIn from '../pages/Login';
 
+const App = (props) => {
+    return <>{Routes}</>;
+  };
+  
 document.addEventListener("DOMContentLoaded", () => {
   var element = document.getElementById("root-page");
-  ReactDOM.render(
+ element && ReactDOM.render(
     <React.StrictMode>
             <BrowserRouter>
               <App />
             </BrowserRouter>
       </React.StrictMode> , element);  
 });
-

@@ -1,130 +1,137 @@
-import { LockOutlined} from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, Modal } from 'antd';
+import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { Button, Form, Input, message, Checkbox, Typography, Divider } from 'antd';
 import React from 'react';
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import setAxiosHeaders from '../components/reusables/AxiosHeaders'
 
 export default function LogIn() {
-  const navigate = useNavigate();
-  const form = useRef();
-  const [Visible, setVisible] = useState(false);
-  const [data, setData] = useState({ email: '', password: '' })
-  const [tenant, setTenant] = useState('');
+    const navigate = useNavigate();
+    const form = useRef();
+    const [user, setUser] = useState('');
+    const [loading, setLoading] = useState(false);
+    //states for login/registration
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  //states for login/registration
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+    // Handling the email change
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
+    };
 
-  // Handling the email change
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
+    // Handling the password change
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    };
+    const check_user = () => {
+        let path = "/api/v1/users/check_user";
+        return new Promise((resolve, reject) => {
+            axios(path)
+                .then((response) => {
+                    if (response.data.email) {
+                        resolve(response.data.email);
+                    } else {
+                        reject(new Error("Failed"));
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                    reject(error);
+                });
+        });
+    };
+    const onFinish = (values) => {
+        const session = { "user": values }
+        let path = " /users/sign_in";
+        setAxiosHeaders();
+        axios.post(path, session)
+            .then(async () => {
+                await check_user();
+                message.success('Succesfully Logged in')
+                setLoading(false);
+                setTimeout(() => {
+                    navigate("/");
+                    window.location.reload();
+                }, 2000);
+            })
+            .then((response) => {
+                console.log(response.data);
+                setUser(response.data)
+            })
+            .catch((error) => {
+                console.log(error);
+                message.error("Invalid Email or Password Combination")
+                setLoading(false);
 
-  // Handling the password change
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-  //showing modal
-  const showModal = () => {
-    setVisible(true);
-  };
-  //handle cancle
-  const handleCancel = () => {
-    setVisible(false);
-  };
-  //submitting form
-  const onFinish = (values) => {
-    const session = {"user": values}
-    // return
-    const url = " /users/sign_in";
-    fetch(url, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        "accept": "application/json"
-      },
-      body: JSON.stringify(session),
-    })
-      .then((data) => {
-        console.log(data)
-        if (data.ok) {
-          handleCancel();
-          return data.json();
-        }
-        throw new Error("Network error.");
-      })
-      .then(data => {
-        localStorage.setItem('userId', data.id)
-        setTenant(data.email)
-        navigate('/')
-      })
-    setData({
-      email: '',
-      password: ''
-    })
-  };
+            })
+    }
+    return (
+        <div className='appBg'>
+            <Form className='loginForm' ref={form} layout="horizontal" onFinish={onFinish} name="normal_login" initialValues={{ remember: true, }}  onSubmit={(e) => e.preventDefault()}>
+                <Typography.Title>Account Login</Typography.Title>
+                <Form.Item name="email" label="E-mail"
+                    rules={[
+                        {
+                            type: 'email',
+                            message: 'The input is not valid E-mail!',
+                        },
+                        {
+                            required: true,
+                            message: 'Please input your E-mail!',
+                        },
+                    ]}
+                >
+                    <Input onChange={handleEmail}
 
-  return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        LogIn/Register
-      </Button>
-      <Modal title="Please login to continue" visible={Visible} onCancel={handleCancel} footer={null}>
-        <Form ref={form} layout="vertical" onFinish={onFinish}
-          name="normal_login"
-          className="login-form"
-          initialValues={{
-            remember: true,
-          }}
-        >
-          <Form.Item name="email" label="E-mail" hasFeedback
-            rules={[
-              {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
-              },
-              {
-                required: true,
-                message: 'Please input your E-mail!',
-              },
-            ]}
-          >
-            <Input onChange={handleEmail} value={email} />
-          </Form.Item>
+                        placeholder="Enter Your Email"
+                        value={email}
+                        prefix={<MailOutlined className="site-form-item-icon" />}
+                    />
+                </Form.Item>
 
-          <Form.Item name="password" label="password"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your Password!',
-              },
-            ]}
-            hasFeedback
-          >
-            <Input onChange={handlePassword}
-              prefix={<LockOutlined className="site-form-item-icon" />}
-              type="password"
-              value={password}
-              placeholder="Password"
-            />
-          </Form.Item>
+                <Form.Item name="password" label="password"
+                    rules={[
+                        {
+                            required: true,
+                            message: 'Please input your Password!',
+                        },
+                    ]}
+                >
+                    <Input.Password onChange={handlePassword}
+                        prefix={<LockOutlined className="site-form-item-icon" />}
+                        type="password"
+                        value={password}
+                        placeholder="Password"
+                    />
+                </Form.Item>
+                <Form.Item>
+                    <Form.Item name="remember_me" valuePropName="checked" noStyle>
+                        <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
 
-          <Form.Item>
-            <Form.Item name="remember_me" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-            <a className="login-form-forgot" href="">
-              Forgot password
-            </a>
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" className="login-form-button">
-              Log In
-            </Button>
-            Or <a href="">register now!</a>
-          </Form.Item>
-        </Form>
-      </Modal>
-    </>
-  )
+                    <a className="login-form-forgot" href="">
+                        Forgot password
+                    </a>
+                </Form.Item>
+                <Form.Item shouldUpdate>
+                    {() =>(
+                    <Button
+                        loading={loading} 
+                        type='primary'
+                        htmlType='submit'
+                        block
+                    >
+                        Login
+                    </Button>
+                )}
+                </Form.Item>
+                <Divider style={{borderColor:"black"}}>Dont have an account</Divider>
+                <div className='sign_up'>
+                    <a href="">register now!</a>
+                </div>
+            </Form>
+        </div>
+    )
 };
+

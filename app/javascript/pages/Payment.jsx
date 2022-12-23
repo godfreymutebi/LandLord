@@ -1,37 +1,33 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Form, Input, InputNumber, Select, DatePicker } from 'antd';
 import { useNavigate } from 'react-router-dom';
-
+import setAxiosHeaders from '../components/reusables/AxiosHeaders'
+import axios from 'axios';
 const Payment = () => {
+    const [payment, setPayment] = useState()
     const navigate = useNavigate();
     const form = useRef();
-    const onFinish = (values) => {
-        // values.preventDefault();
-        let token = document.querySelector('meta[name="csrf-token"]').content;
-        const url = "/api/v1/payments/create";
-        fetch(url, {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-                'X-Requested-With': 'XMLHttpRequest',
-                'X-CSRF-Token': token
-            },
-            body: JSON.stringify(values),
-        })
-        .then((data) => {
-            if (data.ok) {
-                return data.json();
-            }
-            throw new Error("Network error.");
-        })
-        // Displaying results to console
-        .then(data => console.log(data));
-        navigate('/')
-    };
 
+    // axios posting
+    const onFinish = (values) => {
+        setAxiosHeaders();
+        let path = '/api/v1/payments/create'
+        axios.post(path, values)
+            .then((response) => {
+                console.log(response.data);
+                setPayment(response.data)
+                alert('Your Payment is submitted pending approval')
+            })
+            .catch((err) => {
+                console.log(err);
+                console.log(err.response)
+                alert(err.response.data.error.message)
+            })
+        navigate('/')
+    }
     return (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-            <Form ref={form} onFinish={onFinish} layout="vertical" initialValues={{ prefix: '256', }} scrollToFirstError labelCol={{ span: 15 }} wrapperCol={{ span: 24}}>
+            <Form ref={form} onFinish={onFinish} onSubmit={(e) => e.preventDefault()} layout="vertical" initialValues={{ prefix: '256', }} scrollToFirstError labelCol={{ span: 15 }} wrapperCol={{ span: 24 }}>
                 <Form.Item
                     name="first_name"
                     label="First Name"

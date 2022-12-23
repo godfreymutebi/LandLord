@@ -1,6 +1,6 @@
 class Api::V1::PaymentsController < ApplicationController
-    before_action :set_payment, only: %i[ show edit update destroy ]
     before_action :authenticate_user!
+    before_action :set_payment, only: %i[ show edit update destroy ]
     # GET /payments or /payments.json
     def index
      if user_signed_in?
@@ -11,6 +11,7 @@ class Api::V1::PaymentsController < ApplicationController
         end
     end
 
+    
     # GET /payments/1 or /payments/1.json
     def show
         if @payment
@@ -22,32 +23,33 @@ class Api::V1::PaymentsController < ApplicationController
    
     # GET /payments/new
     def new
-      @payment = current_user.payments.build
+    #   @home = Home.find(params[:home_id]) 
+      @payment =Payment.new
     end
   
     # GET /payments/1/edit
     def edit
     end
-  
-    # POST /payments or /payments.json
+
     def create 
-        home = Home.find(params[:home_id])
-        if user_signed_in? 
-            if payment = current_user.payments.create(payment_params, home)
-             render json: payment, status: :created 
-             else 
-                render json: payment.errors, status: 400
-            end
-        else 
-            render json: {}, status: 401
+        payment = Payment.new(payment_params) do |p|
+          p.user = current_user # if user_signed_in?
         end
-    end
+        if payment.save
+          render json: payment, status: :created 
+        else
+          render json: payment.errors, status: :unprocessable_entity
+        end
+      end
+    
     # PATCH/PUT /payments/1 or /payments/1.json
     def update
       if @payment.update(payment_params)
-        render json: {notice: "Payment was successfully updated." }
+        render json: {notice: "Payment was successfully updated." },
+         status: :ok
       else
-        render json: { error: 'Unable to update payment' }
+        render json: { error: 'Unable to update payment' },
+         status: :unprocessable_entity
       end
     end
   
@@ -59,12 +61,16 @@ class Api::V1::PaymentsController < ApplicationController
   
   private
     # Use callbacks to share common setup or constraints between actions.
+    # def home
+    #     @home ||= Home.find(params[:home_id])
+    #   end
+
     def set_payment
       @payment = Payment.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:first_name, :last_name, :phone_number, :address, :money_paid, :date, :nin_number, :user_id, :home_id)
+      params.require(:payment).permit(:first_name, :last_name, :phone_number, :address, :money_paid, :date, :nin_number, :user_id)
     end
 end
