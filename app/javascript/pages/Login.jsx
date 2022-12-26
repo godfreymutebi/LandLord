@@ -9,7 +9,6 @@ import setAxiosHeaders from '../components/reusables/AxiosHeaders'
 export default function LogIn() {
     const navigate = useNavigate();
     const form = useRef();
-    const [user, setUser] = useState('');
     const [loading, setLoading] = useState(false);
     //states for login/registration
     const [email, setEmail] = useState('');
@@ -49,12 +48,12 @@ export default function LogIn() {
         axios.post(path, session)
             .then(async () => {
                 await check_user();
-                message.success('Succesfully Logged in')
                 setLoading(false);
                 setTimeout(() => {
                     navigate("/");
                     window.location.reload();
                 }, 2000);
+                message.success('Succesfully Logged in')
             })
             .catch((error) => {
                 console.log(error);

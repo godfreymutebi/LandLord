@@ -20,7 +20,7 @@
   height: 31px;
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.3);
-}
+} 
 
 .ant-row-rtl .logo {
   float: right;
@@ -30,9 +30,6 @@
 .site-layout-background {
   background: #fff;
 }
-.header {
-  background-color: aqua;
-}
 
 .site-card-wrapper {
   padding: 30px;
@@ -41,7 +38,7 @@
 
 [data-theme="dark"] .site-card-wrapper {
   background: #303030;
-}
+} 
 
 .appBg{
     display: flex;
@@ -78,4 +75,27 @@
     justify-content: center;
     font-size: 15px;
 
+  }
+  .App {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .footer{
+    height: 60px;
+    background-color: black;
+  }
+  .content{
+    display: flex !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+  }
+  .itemCard{
+    margin: 8px !important;
+  }
+  .itemCardImage{
+    height: 150px !important;
+    object-fit: scale-down !important;
   }

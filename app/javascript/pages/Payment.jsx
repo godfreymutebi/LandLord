@@ -1,29 +1,34 @@
 import React, { useRef, useState } from 'react';
-import { Button, Form, Input, InputNumber, Select, DatePicker } from 'antd';
+import { Button, Form, Input, InputNumber, Select, DatePicker, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import setAxiosHeaders from '../components/reusables/AxiosHeaders'
 import axios from 'axios';
 const Payment = () => {
-    const [payment, setPayment] = useState()
+    const [IsLoading, setIsLoading] = useState(false)
     const navigate = useNavigate();
     const form = useRef();
 
     // axios posting
     const onFinish = (values) => {
+        setIsLoading(true);
         setAxiosHeaders();
         let path = '/api/v1/payments/create'
         axios.post(path, values)
             .then((response) => {
                 console.log(response.data);
-                setPayment(response.data)
-                alert('Your Payment is submitted pending approval')
+                setIsLoading(false);
+                setTimeout(() => {
+                    navigate("/");
+                    window.location.reload();
+                }, 2000);
+                message.success('Your Payment is submitted pending approval')
             })
             .catch((err) => {
                 console.log(err);
                 console.log(err.response)
-                alert(err.response.data.error.message)
+                setIsLoading(false);
+                message.err(err.response.data.error.message)
             })
-        navigate('/')
     }
     return (
         <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
@@ -125,10 +130,12 @@ const Payment = () => {
                 >
                     <Input.TextArea showCount maxLength={100} />
                 </Form.Item>
-                <Form.Item >
-                    <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+                <Form.Item shouldUpdate >
+                    {() =>(
+                    <Button IsLoading={IsLoading} type="primary" htmlType="submit" style={{ width: '100%' }}>
                         Make Payment
                     </Button>
+                   )}
                 </Form.Item>
             </Form>
         </div>

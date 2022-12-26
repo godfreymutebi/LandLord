@@ -1,78 +1,66 @@
-import { Space, List, Button } from 'antd';
-import { Link } from "react-router-dom";
+import { Space, List, Button, Card, Image, Typography} from 'antd';
+import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Spinner from './Spinner';
 
 const Home = () => {
-    const [homes, setHomes] = useState([])
+    const [items, setItems] = useState([])
     const [IsLoading, setIsLoading] = useState(true)
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get('/api/v1/homes/index')
             .then(res => {
                 console.log(res)
-                setHomes(res.data)
+                setItems(res.data)
                 setIsLoading(false);
             })
             .catch(err => {
-                setIsLoading(true);
+                setIsLoading(false);
                 console.log(err)
             })
     }, [])
     return (
-        <>
-      {!IsLoading && (
-
-            <List
-                bordered
-                itemLayout="vertical"
-                size="large"
-                pagination={{
-                    onChange: (page) => {
-                        console.log(page);
-                    },
-                    pageSize: 3,
-                }}
-                dataSource={homes}
-
-                renderItem={(item) => (
-                    <List.Item key={item.id}
-                        actions={[
-                            <>
-                                <Space>
-                                    {new Intl.NumberFormat("en-GB", {
-                                        style: "currency",
-                                        currency: "GBP",
-                                        minimumFractionDigits: 0,
-                                        maximumFractionDigits: 0
-                                    }).format(item.price)}
-                                    <>
-                                        <Button type="primary" shape="round" size='small'>
-                                            <Link to="./pages/Payment">Make Payment</Link>
-                                        </Button>
-                                    </>
+        <div>
+            {!IsLoading && (
+                <List
+                    grid={{
+                        gutter: 16,
+                        column: 4,
+                    }}
+                    bordered
+                    renderItem={(home, index) => {
+                        return <Card
+                            className='itemCard'
+                            title={home.title}
+                            key={index}
+                            cover={
+                                <Image className='itemCardImage' src={`./images/${home.image_url}`} />
+                            }
+                            actions={[
+                                <Space size={[16]}>
+                                    <Button type="primary" shape="round" size='small'>View Details</Button> |
+                                    <Button onClick={() => navigate("/pages/Payment")} type="primary" shape="round" size='small'>
+                                        Make Payment
+                                    </Button>
                                 </Space>
-                            </>
-                        ]}
-                        extra={
-                            <img
-                                width={272}
-                                alt="logo"
-                                src={`./images/${item.image_url}`}
-                            />
-                        }
-                    >
-                        <List.Item.Meta
-                            title={item.title}
-                            description={item.description}
-                        />
-                    </List.Item>
-                )}
-            />
+                            ]}
+                        >
+                            <Card.Meta
+                                title={
+                                    <Typography.Paragraph>
+                                        Price: ${home.price}
+                                    </Typography.Paragraph>
+                                }
+                                description={<Typography.Paragraph ellipsis={{ rows: 2, expandable: true, symbol: 'more' }}>{home.description}</Typography.Paragraph>}
+                            ></Card.Meta>
+                        </Card>
+                    }} dataSource={items}
+                ></List>
             )}
             {IsLoading && <Spinner />}
-        </>
+        </div>
     );
 }
 
