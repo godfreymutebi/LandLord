@@ -43,7 +43,7 @@ const AppHeader = () => {
             <Menu.Item key="/pages/Booking">Coatages</Menu.Item>
             <Menu.Item key="/pages/Apartments">Apartments</Menu.Item>
             <Menu.Item key="LogOut" style={{ marginLeft: 'auto' }}>
-                <Button onClick={handleLogout} type='primary'>
+                <Button onClick={handleLogout} onSubmit={(e) =>{e.preventDefault()}} type='primary'>
                     LogOut
                 </Button>
             </Menu.Item>

@@ -20,5 +20,3 @@ end
 
 
 
-# resources :homes do 
-#     resources :payments, shallow: true

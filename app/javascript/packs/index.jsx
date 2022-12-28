@@ -4,12 +4,9 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import Home from '../components/Home';
 import { BrowserRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import Routes from '../routes/index';
-// import App from '../components/App';
-// import LogIn from '../pages/Login';
 
 const App = (props) => {
     return <>{Routes}</>;

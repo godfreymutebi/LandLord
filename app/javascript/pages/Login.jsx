@@ -23,6 +23,7 @@ export default function LogIn() {
     const handlePassword = (e) => {
         setPassword(e.target.value);
     };
+    //checking user
     const check_user = () => {
         let path = "/api/v1/users/check_user";
         return new Promise((resolve, reject) => {
@@ -106,7 +107,7 @@ export default function LogIn() {
                         <Checkbox>Remember me</Checkbox>
                     </Form.Item>
 
-                    <a className="login-form-forgot" href="">
+                    <a className="login-form-forgot" href="/users/password/new">
                         Forgot password
                     </a>
                 </Form.Item>
@@ -124,7 +125,7 @@ export default function LogIn() {
                 </Form.Item>
                 <Divider style={{borderColor:"black"}}>Dont have an account</Divider>
                 <div className='sign_up'>
-                    <a href="">register now!</a>
+                    <a href="/users/sign_up">register now!</a>
                 </div>
             </Form>
         </div>
