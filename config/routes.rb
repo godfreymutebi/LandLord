@@ -3,12 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api,defaults: { format: :json } do
     namespace :v1 do
-        get 'homes/index'
-        post 'homes/create'
-        get '/show/:id', to: 'homes#show'
-        delete '/destroy/:id', to: 'homes#destroy'
-        get '/payments/index'
-        post '/payments/create'
+        resources :homes do 
+            resources :payments, shallow: true
+        end
         get 'users/check_user'
       end
     end  
@@ -20,3 +17,9 @@ end
 
 
 
+# get 'homes/index'
+#         post 'homes/create'
+#         get '/show/:id', to: 'homes#show'
+#         delete '/destroy/:id', to: 'homes#destroy'
+#         get '/payments/index'
+#         post '/payments/create'

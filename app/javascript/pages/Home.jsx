@@ -10,7 +10,8 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('/api/v1/homes/index')
+        let path = 'api/v1/homes'
+        axios.get(path)
             .then(res => {
                 console.log(res)
                 setItems(res.data)

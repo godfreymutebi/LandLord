@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Form, Input, InputNumber, Select, DatePicker, message } from 'antd';
+import { Button, Form, Input, InputNumber, DatePicker, message } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import setAxiosHeaders from '../components/reusables/AxiosHeaders'
 import axios from 'axios';
@@ -12,7 +12,9 @@ const Payment = () => {
     const onFinish = (values) => {
         setIsLoading(true);
         setAxiosHeaders();
-        let path = '/api/v1/payments/create'
+        // let path = '/api/v1/payments/create'
+        let path = '/api/v1/homes/:home_id/payments'
+        
         axios.post(path, values)
             .then((response) => {
                 console.log(response.data);
