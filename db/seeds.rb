@@ -416,4 +416,5 @@ Home.create!(title: 'Programming machine',
                   </p>},
               image_url: 'download.jpeg',
               price: 40.00)
+
               AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

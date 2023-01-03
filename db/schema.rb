@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_30_231528) do
+ActiveRecord::Schema.define(version: 2023_01_03_153401) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.integer "resource_id"
+    t.bigint "resource_id"
     t.string "author_type"
-    t.integer "author_id"
+    t.bigint "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
@@ -54,12 +57,13 @@ ActiveRecord::Schema.define(version: 2022_12_30_231528) do
     t.string "phone_number"
     t.text "address"
     t.decimal "money_paid"
+    t.string "period"
     t.string "nin_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "home_id"
     t.date "date"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "status", default: "pending"
     t.index ["home_id"], name: "index_payments_on_home_id"
     t.index ["user_id"], name: "index_payments_on_user_id"
