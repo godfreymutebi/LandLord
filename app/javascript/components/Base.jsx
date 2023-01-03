@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Booking from '../pages/Booking'
 import Payment from '../pages/Payment';
 import AppHeader from './AppHeader';
+import PageNotFound from '../pages/PageNotFound';
 
 const Base = () => {
     return (
@@ -33,6 +34,7 @@ const Base = () => {
                             <Route path="/Apartments" element={<Apartments />}>Apartments</Route>
                             <Route path="/Rentals" element={<Rentals />}>Rentals</Route>
                             <Route path="/payment/:home_id" element={<Payment />}>Payment</Route>
+                            <Route path="/*" element={<PageNotFound/>}/>
                         </Routes>
                     </Content>
                 </Layout>
