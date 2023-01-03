@@ -4,6 +4,7 @@ import React from 'react';
 import { useState, useRef } from 'react';
 import axios from 'axios';
 import setAxiosHeaders from '../components/reusables/AxiosHeaders';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
     const form = useRef();
@@ -145,7 +146,7 @@ export default function Register() {
                 </Form.Item>
                 <Divider style={{ borderColor: "black" }}>Have an account?</Divider>
                 <div className='sign_up'>
-                    <a href="/users/sign_in">Login</a>
+                    <Link to="/users/sign_in">Login</Link>
                 </div>
             </Form>
         </div>

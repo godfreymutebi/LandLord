@@ -42,7 +42,7 @@ const Home = () => {
                             actions={[
                                 <Space size={[16]}>
                                     <Button type="primary" shape="round" size='small'>View Details</Button> |
-                                    <Button onClick={() => navigate("/pages/Payment")} type="primary" shape="round" size='small'>
+                                    <Button onClick={() => navigate(`payment/${home.id}`)} type="primary" shape="round" size='small'>
                                         Make Payment
                                     </Button>
                                 </Space>

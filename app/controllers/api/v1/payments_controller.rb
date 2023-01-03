@@ -18,7 +18,7 @@ class Api::V1::PaymentsController < ApplicationController
       end
     # GET /payments/new
     def new
-    #   @home = Home.find(params[:home_id]) 
+      @home = Home.find(params[:home_id]) 
       @payment =Payment.new
     end
   
@@ -26,19 +26,23 @@ class Api::V1::PaymentsController < ApplicationController
     def edit
     end
 
+    # POST /payments
     def create 
-        payment = home.payments.create(payment_params) do |p|
+        @home = Home.find(params[:home_id])
+        @payment = @home.payments.create(payment_params) do |p|
           p.user = current_user # if user_signed_in?
         end
-        if payment.save
-          render json: payment.to_json(include: [:home, :user])
+        if @payment.save
+          render json: @payment.to_json(include: [:home, :user])
         else
-          render json: payment.errors, status: :unprocessable_entity
+          render json: @payment.errors, status: :unprocessable_entity
         end
     end
     # PATCH/PUT /payments/1 or /payments/1.json
     def update
-      if @payment.update(payment_params)
+        @home = Home.find(params[:home_id])
+        @payment = @home.payments.find(params[:id])
+      if @payment.update
         render json: {notice: "Payment was successfully updated." },
          status: :ok
       else
@@ -48,17 +52,16 @@ class Api::V1::PaymentsController < ApplicationController
     end
   
     # DELETE /payments/1 or /payments/1.json
+
     def destroy
-      @payment.destroy
+        @home = Home.find(params[:home_id])
+        @payment = @home.payments.find(params[:id])
+        @payment.destroy
         render json: {notice: 'Payment succefully removed'}
     end
   
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def home
-        @home ||= Home.find(params[:home_id])
-    end
-
+    # Use callbacks to share common setup or constraints between actions
     def set_payment
       @payment = Payment.find(params[:id])
     end

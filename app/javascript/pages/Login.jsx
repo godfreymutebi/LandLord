@@ -2,7 +2,7 @@ import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { Button, Form, Input, message, Checkbox, Typography, Divider } from 'antd';
 import React from 'react';
 import { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import setAxiosHeaders from '../components/reusables/AxiosHeaders'
 
@@ -125,7 +125,7 @@ export default function LogIn() {
                 </Form.Item>
                 <Divider style={{borderColor:"black"}}>Dont have an account</Divider>
                 <div className='sign_up'>
-                    <a href="/users/sign_up">register now!</a>
+                    <Link to="/users/sign_up">register now!</Link>
                 </div>
             </Form>
         </div>

@@ -1,40 +1,38 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form, Input, InputNumber, DatePicker, message } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import setAxiosHeaders from '../components/reusables/AxiosHeaders'
 import axios from 'axios';
 const Payment = () => {
-    const [IsLoading, setIsLoading] = useState(false)
+    const params = useParams()
+    const [loading, setloading] = useState(false)
     const navigate = useNavigate();
     const form = useRef();
 
     // axios posting
     const onFinish = (values) => {
-        setIsLoading(true);
+        setloading(true);
         setAxiosHeaders();
-        // let path = '/api/v1/payments/create'
-        let path = '/api/v1/homes/:home_id/payments'
-        
+        let path = `/api/v1/homes/${params.home_id}/payments`
         axios.post(path, values)
             .then((response) => {
                 console.log(response.data);
-                setIsLoading(false);
+                setloading(false);
                 setTimeout(() => {
                     navigate("/");
-                    window.location.reload();
                 }, 2000);
                 message.success('Your Payment is submitted pending approval')
             })
             .catch((err) => {
                 console.log(err);
                 console.log(err.response)
-                setIsLoading(false);
+                setloading(false);
                 message.err(err.response.data.error.message)
             })
     }
     return (
-        <div style={{ display: "flex", justifyContent: "center", marginTop: 20 }}>
-            <Form ref={form} onFinish={onFinish} onSubmit={(e) => e.preventDefault()} layout="vertical" initialValues={{ prefix: '256', }} scrollToFirstError labelCol={{ span: 15 }} wrapperCol={{ span: 24 }}>
+        <div style={{display: "flex" , justifyContent:"center", marginTop: 20, alignContent:"center"}}>
+            <Form ref={form} onFinish={onFinish} onSubmit={(e) => e.preventDefault()} layout="vertical" scrollToFirstError labelCol={{ span: 15 }} wrapperCol={{ span: 24 }}>
                 <Form.Item
                     name="first_name"
                     label="First Name"
@@ -132,12 +130,10 @@ const Payment = () => {
                 >
                     <Input.TextArea showCount maxLength={100} />
                 </Form.Item>
-                <Form.Item shouldUpdate >
-                    {() =>(
-                    <Button IsLoading={IsLoading} type="primary" htmlType="submit" style={{ width: '100%' }}>
+                <Form.Item>
+                    <Button loading={loading} type="primary" htmlType="submit" style={{ width: '100%' }}>
                         Make Payment
                     </Button>
-                   )}
                 </Form.Item>
             </Form>
         </div>

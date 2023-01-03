@@ -1,7 +1,7 @@
 import React from 'react';
 import Base from '../components/Base';
 import LogIn from '../pages/Login';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import Register from '../pages/Register';
 import Password from '../pages/Forgot_PWD';
 

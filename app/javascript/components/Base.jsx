@@ -9,7 +9,6 @@ import Booking from '../pages/Booking'
 import Payment from '../pages/Payment';
 import AppHeader from './AppHeader';
 
-
 const Base = () => {
     return (
         <Layout>
@@ -30,10 +29,10 @@ const Base = () => {
                     >
                         <Routes>
                             <Route path="/" element={<Home />}>Home</Route>
-                            <Route path="/pages/Booking" element={<Booking />}>Booking</Route>
-                            <Route path="/pages/Apartments" element={<Apartments />}>Apartments</Route>
-                            <Route path="/pages/Rentals" element={<Rentals />}>Rentals</Route>
-                            <Route path="/pages/Payment" element={<Payment />}>Payment</Route>
+                            <Route path="/Booking" element={<Booking />}>Booking</Route>
+                            <Route path="/Apartments" element={<Apartments />}>Apartments</Route>
+                            <Route path="/Rentals" element={<Rentals />}>Rentals</Route>
+                            <Route path="/payment/:home_id" element={<Payment />}>Payment</Route>
                         </Routes>
                     </Content>
                 </Layout>
