@@ -8,8 +8,7 @@
 Home.delete_all
 Home.create!(title: 'Docker for Rails Developers',
   description:
-    %{<p>
-      <em>Build, Ship, and Run Your Applications Everywhere</em>
+      'Build, Ship, and Run Your Applications Everywhere
       Docker does for DevOps what Rails did for web development—it gives you 
       a new set of superpowers. Gone are “works on my machine” woes and lengthy 
       setup tasks, replaced instead by a simple, consistent, Docker-based 
@@ -18,14 +17,13 @@ Home.create!(title: 'Docker for Rails Developers',
       fundamental to software development. Go from zero all the way to production 
       as Docker transforms the massive leap of deploying your app in the cloud 
       into a baby step.
-      </p>},
+      ',
   image_url: 'download.jpeg',
   price: 38.00)
 # . . .
 Home.create!(title: 'Build Chatbot Interactions',
   description:
-    %{<p>
-      <em>Responsive, Intuitive Interfaces with Ruby</em>
+      'Responsive, Intuitive Interfaces with Ruby
       The next step in the evolution of user interfaces is here. 
       Chatbots let your users interact with your service in their
       own natural language. Use free and open source tools along 
@@ -35,15 +33,14 @@ Home.create!(title: 'Build Chatbot Interactions',
       From novices to experts, chatbots are an area in which everyone 
       can participate. Exercise your creativity by creating chatbot 
       skills for communicating, information, and fun.
-      </p>},
+      ',
   image_url: 'image.jpeg',
   price: 20.00)
 # . . .
 
 Home.create!(title: 'Programming Crystal',
   description:
-    %{<p>
-      <em>Create High-Performance, Safe, Concurrent Apps</em>
+      'Create High-Performance, Safe, Concurrent Apps
       Crystal is for Ruby programmers who want more performance or for 
       developers who enjoy working in a high-level scripting environment. Crystal 
       combines native execution speed and concurrency with Ruby-like syntax, so 
@@ -52,15 +49,14 @@ Home.create!(title: 'Programming Crystal',
       modern language, combined with the power of types and modern concurrency 
       tooling. Now you can write beautiful code that runs faster, scales better, 
       and is a breeze to deploy.
-      </p>},
+      ',
   image_url: 'bmw.jpeg',
   price: 40.00)
   # . . .
 
 Home.create!(title: 'Programming ',
 description:
-  %{<p>
-    <em>Create High-Performance, Safe, Concurrent Apps</em>
+    'Create High-Performance, Safe, Concurrent Apps
     Crystal is for Ruby programmers who want more performance or for 
     developers who enjoy working in a high-level scripting environment. Crystal 
     combines native execution speed and concurrency with Ruby-like syntax, so 
@@ -69,51 +65,47 @@ description:
     modern language, combined with the power of types and modern concurrency 
     tooling. Now you can write beautiful code that runs faster, scales better, 
     and is a breeze to deploy.
-    </p>},
+    ',
 image_url: 'downloada.jpeg',
 price: 40.00)
 
 # . . .
 
-Home.create!(title: 'Programming machine',
-  description:
-    %{<p>
-      <em>Create High-Performance, Safe, Concurrent Apps</em>
-      Crystal is for Ruby programmers who want more performance or for 
-      developers who enjoy working in a high-level scripting environment. Crystal 
-      combines native execution speed and concurrency with Ruby-like syntax, so 
-      you will feel right at home. This book, the first available on Crystal, 
-      shows you how to write applications that have the beauty and elegance of a 
-      modern language, combined with the power of types and modern concurrency 
-      tooling. Now you can write beautiful code that runs faster, scales better, 
-      and is a breeze to deploy.
-      </p>},
-  image_url: 'download.jpeg',
-  price: 40.00)
-
-# . . .
-
-  Home.create!(title: 'Programming machine',
-  description:
-    %{<p>
-      <em>Create High-Performance, Safe, Concurrent Apps</em>
-      Crystal is for Ruby programmers who want more performance or for 
-      developers who enjoy working in a high-level scripting environment. Crystal 
-      combines native execution speed and concurrency with Ruby-like syntax, so 
-      you will feel right at home. This book, the first available on Crystal, 
-      shows you how to write applications that have the beauty and elegance of a 
-      modern language, combined with the power of types and modern concurrency 
-      tooling. Now you can write beautiful code that runs faster, scales better, 
-      and is a breeze to deploy.
-      </p>},
-  image_url: 'bmw.jpeg',
-  price: 40.00)
-# . . .
-
+Home.create!(title: 'Docker for Rails Developers',
+    description:
+        'Build, Ship, and Run Your Applications Everywhere
+        Docker does for DevOps what Rails did for web development—it gives you 
+        a new set of superpowers. Gone are “works on my machine” woes and lengthy 
+        setup tasks, replaced instead by a simple, consistent, Docker-based 
+        development environment that will have your team up and running in seconds. 
+        Gain hands-on, real-world experience with a tool that’s rapidly becoming 
+        fundamental to software development. Go from zero all the way to production 
+        as Docker transforms the massive leap of deploying your app in the cloud 
+        into a baby step.
+        ',
+    image_url: 'download.jpeg',
+    price: 38.00)
+  # . . .
+  Home.create!(title: 'Build Chatbot Interactions',
+    description:
+        'Responsive, Intuitive Interfaces with Ruby
+        The next step in the evolution of user interfaces is here. 
+        Chatbots let your users interact with your service in their
+        own natural language. Use free and open source tools along 
+        with Ruby to build creative, useful, and unexpected interactions 
+        for users. Take advantage of the Lita framework’s step-by-step 
+        implementation strategy to simplify bot development and testing.
+        From novices to experts, chatbots are an area in which everyone 
+        can participate. Exercise your creativity by creating chatbot 
+        skills for communicating, information, and fun.
+        ',
+    image_url: 'image.jpeg',
+    price: 20.00)
+  # . . .
+  
   Home.create!(title: 'Programming Crystal',
     description:
-      %{<p>
-        <em>Create High-Performance, Safe, Concurrent Apps</em>
+        'Create High-Performance, Safe, Concurrent Apps
         Crystal is for Ruby programmers who want more performance or for 
         developers who enjoy working in a high-level scripting environment. Crystal 
         combines native execution speed and concurrency with Ruby-like syntax, so 
@@ -122,15 +114,62 @@ Home.create!(title: 'Programming machine',
         modern language, combined with the power of types and modern concurrency 
         tooling. Now you can write beautiful code that runs faster, scales better, 
         and is a breeze to deploy.
-        </p>},
+        ',
     image_url: 'bmw.jpeg',
     price: 40.00)
-# . . .
-
-Home.create!(title: 'Programming machine',
+    # . . .
+  
+  Home.create!(title: 'Programming ',
+  description:
+      'Create High-Performance, Safe, Concurrent Apps
+      Crystal is for Ruby programmers who want more performance or for 
+      developers who enjoy working in a high-level scripting environment. Crystal 
+      combines native execution speed and concurrency with Ruby-like syntax, so 
+      you will feel right at home. This book, the first available on Crystal, 
+      shows you how to write applications that have the beauty and elegance of a 
+      modern language, combined with the power of types and modern concurrency 
+      tooling. Now you can write beautiful code that runs faster, scales better, 
+      and is a breeze to deploy.
+      ',
+  image_url: 'downloada.jpeg',
+  price: 40.00)
+  
+  # . . .
+  Home.create!(title: 'Docker for Rails Developers',
     description:
-      %{<p>
-        <em>Create High-Performance, Safe, Concurrent Apps</em>
+        'Build, Ship, and Run Your Applications Everywhere
+        Docker does for DevOps what Rails did for web development—it gives you 
+        a new set of superpowers. Gone are “works on my machine” woes and lengthy 
+        setup tasks, replaced instead by a simple, consistent, Docker-based 
+        development environment that will have your team up and running in seconds. 
+        Gain hands-on, real-world experience with a tool that’s rapidly becoming 
+        fundamental to software development. Go from zero all the way to production 
+        as Docker transforms the massive leap of deploying your app in the cloud 
+        into a baby step.
+        ',
+    image_url: 'download.jpeg',
+    price: 38.00)
+  # . . .
+  Home.create!(title: 'Build Chatbot Interactions',
+    description:
+        'Responsive, Intuitive Interfaces with Ruby
+        The next step in the evolution of user interfaces is here. 
+        Chatbots let your users interact with your service in their
+        own natural language. Use free and open source tools along 
+        with Ruby to build creative, useful, and unexpected interactions 
+        for users. Take advantage of the Lita framework’s step-by-step 
+        implementation strategy to simplify bot development and testing.
+        From novices to experts, chatbots are an area in which everyone 
+        can participate. Exercise your creativity by creating chatbot 
+        skills for communicating, information, and fun.
+        ',
+    image_url: 'image.jpeg',
+    price: 20.00)
+  # . . .
+  
+  Home.create!(title: 'Programming Crystal',
+    description:
+        'Create High-Performance, Safe, Concurrent Apps
         Crystal is for Ruby programmers who want more performance or for 
         developers who enjoy working in a high-level scripting environment. Crystal 
         combines native execution speed and concurrency with Ruby-like syntax, so 
@@ -139,282 +178,152 @@ Home.create!(title: 'Programming machine',
         modern language, combined with the power of types and modern concurrency 
         tooling. Now you can write beautiful code that runs faster, scales better, 
         and is a breeze to deploy.
-        </p>},
-    image_url: 'download.jpeg',
+        ',
+    image_url: 'bmw.jpeg',
     price: 40.00)
-
-    Home.create!(title: 'Docker for Rails Developers',
-        description:
-          %{<p>
-            <em>Build, Ship, and Run Your Applications Everywhere</em>
-            Docker does for DevOps what Rails did for web development—it gives you 
-            a new set of superpowers. Gone are “works on my machine” woes and lengthy 
-            setup tasks, replaced instead by a simple, consistent, Docker-based 
-            development environment that will have your team up and running in seconds. 
-            Gain hands-on, real-world experience with a tool that’s rapidly becoming 
-            fundamental to software development. Go from zero all the way to production 
-            as Docker transforms the massive leap of deploying your app in the cloud 
-            into a baby step.
-            </p>},
-        image_url: 'download.jpeg',
-        price: 38.00)
-      # . . .
-      Home.create!(title: 'Build Chatbot Interactions',
-        description:
-          %{<p>
-            <em>Responsive, Intuitive Interfaces with Ruby</em>
-            The next step in the evolution of user interfaces is here. 
-            Chatbots let your users interact with your service in their
-            own natural language. Use free and open source tools along 
-            with Ruby to build creative, useful, and unexpected interactions 
-            for users. Take advantage of the Lita framework’s step-by-step 
-            implementation strategy to simplify bot development and testing.
-            From novices to experts, chatbots are an area in which everyone 
-            can participate. Exercise your creativity by creating chatbot 
-            skills for communicating, information, and fun.
-            </p>},
-        image_url: 'image.jpeg',
-        price: 20.00)
-      # . . .
-      
-      Home.create!(title: 'Programming Crystal',
-        description:
-          %{<p>
-            <em>Create High-Performance, Safe, Concurrent Apps</em>
-            Crystal is for Ruby programmers who want more performance or for 
-            developers who enjoy working in a high-level scripting environment. Crystal 
-            combines native execution speed and concurrency with Ruby-like syntax, so 
-            you will feel right at home. This book, the first available on Crystal, 
-            shows you how to write applications that have the beauty and elegance of a 
-            modern language, combined with the power of types and modern concurrency 
-            tooling. Now you can write beautiful code that runs faster, scales better, 
-            and is a breeze to deploy.
-            </p>},
-        image_url: 'bmw.jpeg',
-        price: 40.00)
-        # . . .
-      
-      Home.create!(title: 'Programming ',
-      description:
-        %{<p>
-          <em>Create High-Performance, Safe, Concurrent Apps</em>
-          Crystal is for Ruby programmers who want more performance or for 
-          developers who enjoy working in a high-level scripting environment. Crystal 
-          combines native execution speed and concurrency with Ruby-like syntax, so 
-          you will feel right at home. This book, the first available on Crystal, 
-          shows you how to write applications that have the beauty and elegance of a 
-          modern language, combined with the power of types and modern concurrency 
-          tooling. Now you can write beautiful code that runs faster, scales better, 
-          and is a breeze to deploy.
-          </p>},
-      image_url: 'downloada.jpeg',
-      price: 40.00)
-      
-      # . . .
-      
-      Home.create!(title: 'Programming machine',
-        description:
-          %{<p>
-            <em>Create High-Performance, Safe, Concurrent Apps</em>
-            Crystal is for Ruby programmers who want more performance or for 
-            developers who enjoy working in a high-level scripting environment. Crystal 
-            combines native execution speed and concurrency with Ruby-like syntax, so 
-            you will feel right at home. This book, the first available on Crystal, 
-            shows you how to write applications that have the beauty and elegance of a 
-            modern language, combined with the power of types and modern concurrency 
-            tooling. Now you can write beautiful code that runs faster, scales better, 
-            and is a breeze to deploy.
-            </p>},
-        image_url: 'download.jpeg',
-        price: 40.00)
-      
-      # . . .
-      
-        Home.create!(title: 'Programming machine',
-        description:
-          %{<p>
-            <em>Create High-Performance, Safe, Concurrent Apps</em>
-            Crystal is for Ruby programmers who want more performance or for 
-            developers who enjoy working in a high-level scripting environment. Crystal 
-            combines native execution speed and concurrency with Ruby-like syntax, so 
-            you will feel right at home. This book, the first available on Crystal, 
-            shows you how to write applications that have the beauty and elegance of a 
-            modern language, combined with the power of types and modern concurrency 
-            tooling. Now you can write beautiful code that runs faster, scales better, 
-            and is a breeze to deploy.
-            </p>},
-        image_url: 'bmw.jpeg',
-        price: 40.00)
-      # . . .
-      
-        Home.create!(title: 'Programming Crystal',
-          description:
-            %{<p>
-              <em>Create High-Performance, Safe, Concurrent Apps</em>
-              Crystal is for Ruby programmers who want more performance or for 
-              developers who enjoy working in a high-level scripting environment. Crystal 
-              combines native execution speed and concurrency with Ruby-like syntax, so 
-              you will feel right at home. This book, the first available on Crystal, 
-              shows you how to write applications that have the beauty and elegance of a 
-              modern language, combined with the power of types and modern concurrency 
-              tooling. Now you can write beautiful code that runs faster, scales better, 
-              and is a breeze to deploy.
-              </p>},
-          image_url: 'bmw.jpeg',
-          price: 40.00)
-      # . . .
-      
-      Home.create!(title: 'Programming machine',
-          description:
-            %{<p>
-              <em>Create High-Performance, Safe, Concurrent Apps</em>
-              Crystal is for Ruby programmers who want more performance or for 
-              developers who enjoy working in a high-level scripting environment. Crystal 
-              combines native execution speed and concurrency with Ruby-like syntax, so 
-              you will feel right at home. This book, the first available on Crystal, 
-              shows you how to write applications that have the beauty and elegance of a 
-              modern language, combined with the power of types and modern concurrency 
-              tooling. Now you can write beautiful code that runs faster, scales better, 
-              and is a breeze to deploy.
-              </p>},
-          image_url: 'download.jpeg',
-          price: 40.00)
-
-          Home.create!(title: 'Docker for Rails Developers',
-            description:
-              %{<p>
-                <em>Build, Ship, and Run Your Applications Everywhere</em>
-                Docker does for DevOps what Rails did for web development—it gives you 
-                a new set of superpowers. Gone are “works on my machine” woes and lengthy 
-                setup tasks, replaced instead by a simple, consistent, Docker-based 
-                development environment that will have your team up and running in seconds. 
-                Gain hands-on, real-world experience with a tool that’s rapidly becoming 
-                fundamental to software development. Go from zero all the way to production 
-                as Docker transforms the massive leap of deploying your app in the cloud 
-                into a baby step.
-                </p>},
-            image_url: 'download.jpeg',
-            price: 38.00)
-          # . . .
-          Home.create!(title: 'Build Chatbot Interactions',
-            description:
-              %{<p>
-                <em>Responsive, Intuitive Interfaces with Ruby</em>
-                The next step in the evolution of user interfaces is here. 
-                Chatbots let your users interact with your service in their
-                own natural language. Use free and open source tools along 
-                with Ruby to build creative, useful, and unexpected interactions 
-                for users. Take advantage of the Lita framework’s step-by-step 
-                implementation strategy to simplify bot development and testing.
-                From novices to experts, chatbots are an area in which everyone 
-                can participate. Exercise your creativity by creating chatbot 
-                skills for communicating, information, and fun.
-                </p>},
-            image_url: 'image.jpeg',
-            price: 20.00)
-          # . . .
-          
-          Home.create!(title: 'Programming Crystal',
-            description:
-              %{<p>
-                <em>Create High-Performance, Safe, Concurrent Apps</em>
-                Crystal is for Ruby programmers who want more performance or for 
-                developers who enjoy working in a high-level scripting environment. Crystal 
-                combines native execution speed and concurrency with Ruby-like syntax, so 
-                you will feel right at home. This book, the first available on Crystal, 
-                shows you how to write applications that have the beauty and elegance of a 
-                modern language, combined with the power of types and modern concurrency 
-                tooling. Now you can write beautiful code that runs faster, scales better, 
-                and is a breeze to deploy.
-                </p>},
-            image_url: 'bmw.jpeg',
-            price: 40.00)
-            # . . .
-          
-          Home.create!(title: 'Programming ',
-          description:
-            %{<p>
-              <em>Create High-Performance, Safe, Concurrent Apps</em>
-              Crystal is for Ruby programmers who want more performance or for 
-              developers who enjoy working in a high-level scripting environment. Crystal 
-              combines native execution speed and concurrency with Ruby-like syntax, so 
-              you will feel right at home. This book, the first available on Crystal, 
-              shows you how to write applications that have the beauty and elegance of a 
-              modern language, combined with the power of types and modern concurrency 
-              tooling. Now you can write beautiful code that runs faster, scales better, 
-              and is a breeze to deploy.
-              </p>},
-          image_url: 'downloada.jpeg',
-          price: 40.00)
-          
-          # . . .
-          
-          Home.create!(title: 'Programming machine',
-            description:
-              %{<p>
-                <em>Create High-Performance, Safe, Concurrent Apps</em>
-                Crystal is for Ruby programmers who want more performance or for 
-                developers who enjoy working in a high-level scripting environment. Crystal 
-                combines native execution speed and concurrency with Ruby-like syntax, so 
-                you will feel right at home. This book, the first available on Crystal, 
-                shows you how to write applications that have the beauty and elegance of a 
-                modern language, combined with the power of types and modern concurrency 
-                tooling. Now you can write beautiful code that runs faster, scales better, 
-                and is a breeze to deploy.
-                </p>},
-            image_url: 'download.jpeg',
-            price: 40.00)
-          
-          # . . .
-          
-            Home.create!(title: 'Programming machine',
-            description:
-              %{<p>
-                <em>Create High-Performance, Safe, Concurrent Apps</em>
-                Crystal is for Ruby programmers who want more performance or for 
-                developers who enjoy working in a high-level scripting environment. Crystal 
-                combines native execution speed and concurrency with Ruby-like syntax, so 
-                you will feel right at home. This book, the first available on Crystal, 
-                shows you how to write applications that have the beauty and elegance of a 
-                modern language, combined with the power of types and modern concurrency 
-                tooling. Now you can write beautiful code that runs faster, scales better, 
-                and is a breeze to deploy.
-                </p>},
-            image_url: 'bmw.jpeg',
-            price: 40.00)
-          # . . .
-          
-            Home.create!(title: 'Programming Crystal',
-              description:
-                %{<p>
-                  <em>Create High-Performance, Safe, Concurrent Apps</em>
-                  Crystal is for Ruby programmers who want more performance or for 
-                  developers who enjoy working in a high-level scripting environment. Crystal 
-                  combines native execution speed and concurrency with Ruby-like syntax, so 
-                  you will feel right at home. This book, the first available on Crystal, 
-                  shows you how to write applications that have the beauty and elegance of a 
-                  modern language, combined with the power of types and modern concurrency 
-                  tooling. Now you can write beautiful code that runs faster, scales better, 
-                  and is a breeze to deploy.
-                  </p>},
-              image_url: 'bmw.jpeg',
-              price: 40.00)
-          # . . .
-          
-          Home.create!(title: 'Programming machine',
-              description:
-                %{<p>
-                  <em>Create High-Performance, Safe, Concurrent Apps</em>
-                  Crystal is for Ruby programmers who want more performance or for 
-                  developers who enjoy working in a high-level scripting environment. Crystal 
-                  combines native execution speed and concurrency with Ruby-like syntax, so 
-                  you will feel right at home. This book, the first available on Crystal, 
-                  shows you how to write applications that have the beauty and elegance of a 
-                  modern language, combined with the power of types and modern concurrency 
-                  tooling. Now you can write beautiful code that runs faster, scales better, 
-                  and is a breeze to deploy.
-                  </p>},
-              image_url: 'download.jpeg',
-              price: 40.00)
-
-              AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+    # . . .
+  
+  Home.create!(title: 'Programming ',
+  description:
+      'Create High-Performance, Safe, Concurrent Apps
+      Crystal is for Ruby programmers who want more performance or for 
+      developers who enjoy working in a high-level scripting environment. Crystal 
+      combines native execution speed and concurrency with Ruby-like syntax, so 
+      you will feel right at home. This book, the first available on Crystal, 
+      shows you how to write applications that have the beauty and elegance of a 
+      modern language, combined with the power of types and modern concurrency 
+      tooling. Now you can write beautiful code that runs faster, scales better, 
+      and is a breeze to deploy.
+      ',
+  image_url: 'downloada.jpeg',
+  price: 40.00)
+  
+  # . . .
+  Home.create!(title: 'Docker for Rails Developers',
+    description:
+        'Build, Ship, and Run Your Applications Everywhere
+        Docker does for DevOps what Rails did for web development—it gives you 
+        a new set of superpowers. Gone are “works on my machine” woes and lengthy 
+        setup tasks, replaced instead by a simple, consistent, Docker-based 
+        development environment that will have your team up and running in seconds. 
+        Gain hands-on, real-world experience with a tool that’s rapidly becoming 
+        fundamental to software development. Go from zero all the way to production 
+        as Docker transforms the massive leap of deploying your app in the cloud 
+        into a baby step.
+        ',
+    image_url: 'download.jpeg',
+    price: 38.00)
+  # . . .
+  Home.create!(title: 'Build Chatbot Interactions',
+    description:
+        'Responsive, Intuitive Interfaces with Ruby
+        The next step in the evolution of user interfaces is here. 
+        Chatbots let your users interact with your service in their
+        own natural language. Use free and open source tools along 
+        with Ruby to build creative, useful, and unexpected interactions 
+        for users. Take advantage of the Lita framework’s step-by-step 
+        implementation strategy to simplify bot development and testing.
+        From novices to experts, chatbots are an area in which everyone 
+        can participate. Exercise your creativity by creating chatbot 
+        skills for communicating, information, and fun.
+        ',
+    image_url: 'image.jpeg',
+    price: 20.00)
+  # . . .
+  
+  Home.create!(title: 'Programming Crystal',
+    description:
+        'Create High-Performance, Safe, Concurrent Apps
+        Crystal is for Ruby programmers who want more performance or for 
+        developers who enjoy working in a high-level scripting environment. Crystal 
+        combines native execution speed and concurrency with Ruby-like syntax, so 
+        you will feel right at home. This book, the first available on Crystal, 
+        shows you how to write applications that have the beauty and elegance of a 
+        modern language, combined with the power of types and modern concurrency 
+        tooling. Now you can write beautiful code that runs faster, scales better, 
+        and is a breeze to deploy.
+        ',
+    image_url: 'bmw.jpeg',
+    price: 40.00)
+    # . . .
+  
+  Home.create!(title: 'Programming ',
+  description:
+      'Create High-Performance, Safe, Concurrent Apps
+      Crystal is for Ruby programmers who want more performance or for 
+      developers who enjoy working in a high-level scripting environment. Crystal 
+      combines native execution speed and concurrency with Ruby-like syntax, so 
+      you will feel right at home. This book, the first available on Crystal, 
+      shows you how to write applications that have the beauty and elegance of a 
+      modern language, combined with the power of types and modern concurrency 
+      tooling. Now you can write beautiful code that runs faster, scales better, 
+      and is a breeze to deploy.
+      ',
+  image_url: 'downloada.jpeg',
+  price: 40.00)
+  
+  # . . .
+  Home.create!(title: 'Docker for Rails Developers',
+    description:
+        'Build, Ship, and Run Your Applications Everywhere
+        Docker does for DevOps what Rails did for web development—it gives you 
+        a new set of superpowers. Gone are “works on my machine” woes and lengthy 
+        setup tasks, replaced instead by a simple, consistent, Docker-based 
+        development environment that will have your team up and running in seconds. 
+        Gain hands-on, real-world experience with a tool that’s rapidly becoming 
+        fundamental to software development. Go from zero all the way to production 
+        as Docker transforms the massive leap of deploying your app in the cloud 
+        into a baby step.
+        ',
+    image_url: 'download.jpeg',
+    price: 38.00)
+  # . . .
+  Home.create!(title: 'Build Chatbot Interactions',
+    description:
+        'Responsive, Intuitive Interfaces with Ruby
+        The next step in the evolution of user interfaces is here. 
+        Chatbots let your users interact with your service in their
+        own natural language. Use free and open source tools along 
+        with Ruby to build creative, useful, and unexpected interactions 
+        for users. Take advantage of the Lita framework’s step-by-step 
+        implementation strategy to simplify bot development and testing.
+        From novices to experts, chatbots are an area in which everyone 
+        can participate. Exercise your creativity by creating chatbot 
+        skills for communicating, information, and fun.
+        ',
+    image_url: 'image.jpeg',
+    price: 20.00)
+  # . . .
+  
+  Home.create!(title: 'Programming Crystal',
+    description:
+        'Create High-Performance, Safe, Concurrent Apps
+        Crystal is for Ruby programmers who want more performance or for 
+        developers who enjoy working in a high-level scripting environment. Crystal 
+        combines native execution speed and concurrency with Ruby-like syntax, so 
+        you will feel right at home. This book, the first available on Crystal, 
+        shows you how to write applications that have the beauty and elegance of a 
+        modern language, combined with the power of types and modern concurrency 
+        tooling. Now you can write beautiful code that runs faster, scales better, 
+        and is a breeze to deploy.
+        ',
+    image_url: 'bmw.jpeg',
+    price: 40.00)
+    # . . .
+  
+  Home.create!(title: 'Programming ',
+  description:
+      'Create High-Performance, Safe, Concurrent Apps
+      Crystal is for Ruby programmers who want more performance or for 
+      developers who enjoy working in a high-level scripting environment. Crystal 
+      combines native execution speed and concurrency with Ruby-like syntax, so 
+      you will feel right at home. This book, the first available on Crystal, 
+      shows you how to write applications that have the beauty and elegance of a 
+      modern language, combined with the power of types and modern concurrency 
+      tooling. Now you can write beautiful code that runs faster, scales better, 
+      and is a breeze to deploy.
+      ',
+  image_url: 'downloada.jpeg',
+  price: 40.00)
+  
+  # . . .

@@ -10,7 +10,7 @@ export default (
         <Route path="/users/sign_in/" element={<LogIn/>} />
         <Route path="/users/sign_up/" element={<Register/>} />
         <Route path="/users/password/new" element={<Password/>} />
-
+        
 		<Route path="*" element={<Base /> } />
 	</Routes>
 );

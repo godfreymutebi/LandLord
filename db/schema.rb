@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_03_153401) do
+ActiveRecord::Schema.define(version: 2023_01_03_192725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2023_01_03_153401) do
     t.string "phone_number"
     t.text "address"
     t.decimal "money_paid"
-    t.string "period"
     t.string "nin_number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

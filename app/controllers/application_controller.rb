@@ -2,15 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   respond_to :html, :json
 
-    #   def after_sign_in_path_for(user)
-    #     if user.role == 'admin'
-    #      admin_dashboard_path
-    #     else
-    #      root_path
-    #     end
-    #   end
-
-
     def after_sign_in_path_for(resource)
         if resource.class == AdminUser
          admin_dashboard_path

@@ -15,3 +15,35 @@
 // For example, to change the default status-tag color:
 //
 //   .status_tag { background: #6090DB; }
+
+.money_paid{
+    text-align: right;
+}
+.status {
+    text-align: center;
+}
+.status_tag {
+    background: darken($secondary-color, 15%);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 3px 5px 2px 5px;
+    font-size: 0.8em;
+  
+    &.ok, &.published, &.complete, &.completed, &.green { background: #8daa92; }
+    &.warn, &.warning, &.orange { background: #e29b20; }
+    &.error, &.errored, &.red { background: #d45f53; }
+  }
+
+//   .index_table thead tr th:nth-child(2) {
+//     width: 200px !important;
+//   }
+//   .index_table thead tr th:nth-child(4) {
+//     width: 120px !important;
+//   }
+//   .index_table thead tr th:nth-child(5) {
+//     width: 200px !important;
+//   }
+//   .index_table thead tr th:nth-child(6) {
+//     width: 150px !important;
+//   }
